@@ -23,7 +23,7 @@ public class ReservationController {
     @GetMapping("addReservation")
     String addReservation(Model model) {
         model.addAttribute("showingList", showingServices.getAllShowing());
-        return "";
+        return "reservation";
     }
 
     @PostMapping("addReservation")

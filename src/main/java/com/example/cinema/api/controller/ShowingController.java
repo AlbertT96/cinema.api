@@ -18,9 +18,15 @@ public class ShowingController {
     private final ShowingServices showingServices;
     private final ReservationServices reservationServices;
 
+
+    @GetMapping("/")
+    String getIndex() {
+        return "index";
+    }
+
     @GetMapping("addShowing")
     String addShowing(Model model) {
-        return "";
+        return "addNewSession";
     }
 
     @PostMapping("addShowing")
@@ -29,18 +35,18 @@ public class ShowingController {
                 showing.getDate(),
                 showing.getMaxPlaces(),
                 showing.getName());
-        return "";
+        return "addNewSession";
     }
 
     @GetMapping("listShowing")
     String editShowing(Model model) {
         model.addAttribute("showing", showingServices.getAllShowing());
-        return "";
+        return "session";
     }
 
     @PostMapping("deleteShowing/{id}")
     String deleteShowing(@PathVariable Long id) {
         showingServices.deleteShowingById(id);
-        return "";
+        return "session";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl"  xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -11,14 +11,7 @@
 
     <title>JAVARZ</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="../static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <th:block th:replace="fragments/fragments.html :: links" th:remove="tag"></th:block>
 </head>
 
 <body id="page-top">
@@ -26,57 +19,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="../../../../../../stare%20projekty/javarzw10_views/index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">SEANSE KINOWE</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href="add.html">
-                <i class="fas fa-users"></i>
-                <span>DODAWANIE</span>
-            </a>
-
-        </li>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href="search.html">
-                <i class="fas fa-clipboard-list"></i>
-                <span>WYSZUKIWANIE</span>
-            </a>
-
-        </li>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="reservation.html">
-                <i class="fas fa-cogs"></i>
-                <span>REZERWACJA</span></a>
-        </li>
-
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-
-    </ul>
-    <!-- End of Sidebar -->
+<div th:replace="fragments/fragments.html :: sidebar"></div>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -84,12 +27,11 @@
         <!-- Main Content -->
         <div id="content">
 
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
                 <!-- Content Row -->
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -166,13 +108,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; SDACADEMY 2020</span>
-                </div>
-            </div>
-        </footer>
+        <div th:replace="fragments/fragments.html :: footer"></div>
         <!-- End of Footer -->
 
     </div>
@@ -200,18 +136,18 @@
             <div class="modal-body">Wybierz „Wyloguj” poniżej, jeśli chcesz zakończyć bieżącą sesję.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Anuluj</button>
-                <a class="btn btn-primary" href="#">Wyloguj</a>
+                <a class="btn btn-primary" th:href="@{#}">Wyloguj</a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="../static/js/sb-admin-2.min.js"></script>
+<script th:src="@{/js/sb-admin-2.min.js}"></script>
 
 </body>
 
