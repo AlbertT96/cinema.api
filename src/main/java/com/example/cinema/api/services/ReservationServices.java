@@ -29,12 +29,12 @@ public class ReservationServices {
         return reservationRepo.getOne(id);
     }
 
-    public void addReservation(String firstName, String lastName, Long sitNumber, Long showingId) {
-        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> ! x.equals(sitNumber))){
+    public void addReservation(String firstName, String lastName, Long seatNumber, Long showingId) {
+        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> ! x.equals(seatNumber))){
             Reservation reservation = Reservation.builder()
                     .firstName(firstName)
                     .lastName(lastName)
-                    .sitNumber(sitNumber)
+                    .seatNumber(seatNumber)
                     .showing(Showing.builder().id(showingId).build())
                     .build();
 
@@ -48,13 +48,13 @@ public class ReservationServices {
 
     }
 
-    public void putReservation(Long id, String firstName, String lastName, Long showingId, Long sitNumber) {
-        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> ! x.equals(sitNumber))){
+    public void putReservation(Long id, String firstName, String lastName, Long showingId, Long seatNumber) {
+        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> ! x.equals(seatNumber))){
             Reservation reservation = Reservation.builder()
                     .id(id)
                     .firstName(firstName)
                     .lastName(lastName)
-                    .sitNumber(sitNumber)
+                    .seatNumber(seatNumber)
                     .showing(Showing.builder().id(showingId).build())
                     .build();
 
