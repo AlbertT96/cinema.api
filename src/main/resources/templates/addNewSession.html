@@ -19,7 +19,6 @@
     <!-- Custom styles for this template-->
     <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
 
-
 </head>
 
 <body id="page-top">
@@ -27,13 +26,12 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="index.html">
+           href="../../../../../../stare%20projekty/javarzw10_views/index.html">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -53,8 +51,7 @@
                 <span>DODAWANIE</span>
             </a>
 
-        </li>:
-
+        </li>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -88,74 +85,40 @@
         <div id="content">
 
 
-            <!-- Sidebar Toggle (Topbar) -->
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
-            </button>
-
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                     aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                   aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
                 <!-- Content Row -->
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <div class="form-group row">
-                                    <label for="firstName" class="col-2 col-form-label">Imię</label>
+                                    <label for="id" class="col-2 col-form-label">Id</label>
                                     <div class="col-10">
-                                        <input class="form-control" id="firstName" type="text" value="Imię">
+                                        <input class="form-control" id="id" type="text" value="id">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="lastName" class="col-2 col-form-label">Nazwisko</label>
+                                    <label for="name" class="col-2 col-form-label">Nazwa seansu</label>
                                     <div class="col-10">
-                                        <input class="form-control" id="lastName" type="text" value="Nazwisko">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="session" class="col-2 col-form-label">Seans</label>
-                                    <div class="col-10">
-                                        <select class="custom-select" id="session">
-                                            <option>jakis seans</option>
-                                        </select>
+                                        <input class="form-control" id="name" type="text" value="Nazwa seansu">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="phoneNumber" class="col-2 col-form-label">Numer Telefonu</label>
+                                    <label for="date" class="col-2 col-form-label">Data seansu</label>
                                     <div class="col-10">
-                                        <input class="form-control" id="phoneNumber" type="text" value="Numer telefonu">
+                                        <input class="form-control" id="date" type="text" value="Data seansu">
                                     </div>
                                 </div>
 
-
+                                <div class="form-group row">
+                                    <label for="maxPlaces" class="col-2 col-form-label">Liczba miejsc</label>
+                                    <div class="col-10">
+                                        <input class="form-control" id="maxPlaces" type="text" value="Liczba miejsc">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
