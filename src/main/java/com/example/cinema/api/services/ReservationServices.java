@@ -28,7 +28,7 @@ public class ReservationServices {
             Reservation reservation = Reservation.builder()
                     .firstName(firstName)
                     .lastName(lastName)
-                    .sitNumber(sitNumber)
+                    .seatNumber(sitNumber)
                     .showing(Showing.builder().id(showingId).build())
                     .build();
 
