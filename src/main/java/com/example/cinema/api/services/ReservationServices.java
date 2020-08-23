@@ -5,26 +5,32 @@ import com.example.cinema.api.model.Showing;
 import com.example.cinema.api.repository.ReservationRepository;
 import com.example.cinema.api.repository.ShowingRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Slf4j
 @AllArgsConstructor
 @Service
 public class ReservationServices {
     private final ReservationRepository reservationRepo;
     private final ShowingServices showingServices;
 
-    Set<Reservation> getReservedPlacesByShowing(Showing showing) {
+    public Set<Reservation> getReservedPlacesByShowing(Showing showing) {
         return reservationRepo.findAllByShowing(showing);
     }
 
-    void deleteReservationById(Long id) {
+    public void deleteReservationById(Long id) {
         reservationRepo.deleteById(id);
     }
 
-    String addReservation(String firstName, String lastName, Long sitNumber, Long showingId) {
-        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> x.equals(sitNumber))){
+    public Reservation getReservationById(Long id) {
+        return reservationRepo.getOne(id);
+    }
+
+    public void addReservation(String firstName, String lastName, Long sitNumber, Long showingId) {
+        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> ! x.equals(sitNumber))){
             Reservation reservation = Reservation.builder()
                     .firstName(firstName)
                     .lastName(lastName)
@@ -33,9 +39,30 @@ public class ReservationServices {
                     .build();
 
             reservationRepo.save(reservation);
-            return "success add";
-        }
-        return "fail";
 
+            log.info("add reservation");
+
+        }
+
+        log.warn("add reservation error");
+
+    }
+
+    public void putReservation(Long id, String firstName, String lastName, Long showingId, Long sitNumber) {
+        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> ! x.equals(sitNumber))){
+            Reservation reservation = Reservation.builder()
+                    .id(id)
+                    .firstName(firstName)
+                    .lastName(lastName)
+                    .sitNumber(sitNumber)
+                    .showing(Showing.builder().id(showingId).build())
+                    .build();
+
+            reservationRepo.save(reservation);
+
+            log.info("put reservation");
+        }
+
+        log.warn("put reservation error");
     }
 }

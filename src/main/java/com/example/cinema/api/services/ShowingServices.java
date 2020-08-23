@@ -19,11 +19,11 @@ public class ShowingServices {
     private final ShowingRepository showingRepo;
     private final ReservationServices reservationServices;
 
-    List<Showing> getAllShowing() {
+    public List<Showing> getAllShowing() {
         return showingRepo.findAll();
     }
     
-    List<Long> getAllAvailableSitByShowingId(Long id) {
+    public List<Long> getAllAvailableSitByShowingId(Long id) {
         Showing showing = showingRepo.getOne(id);
         Long maxPlaces = showing.getMaxPlaces();
         List<Long> reservedPlaces = reservationServices.getReservedPlacesByShowing(showing).stream()
@@ -34,16 +34,16 @@ public class ShowingServices {
                 .boxed()
                 .collect(Collectors.toList());
     }
-    
-    Showing getShowingById(Long id) {
+
+    public Showing getShowingById(Long id) {
         return showingRepo.getOne(id);
     }
 
-    void addShowing(LocalDateTime date, Long maxPlaces, String name) {
+    public void addShowing(LocalDateTime date, Long maxPlaces, String name) {
         showingRepo.save(Showing.builder().date(date).maxPlaces(maxPlaces).name(name).build());
     }
-    
-    void deleteShowingById(Long id) {
+
+    public void deleteShowingById(Long id) {
         showingRepo.deleteById(id);
     }
 }

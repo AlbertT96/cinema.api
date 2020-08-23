@@ -19,6 +19,6 @@ public class Showing {
     private LocalDateTime date;
     private String name;
     private Long maxPlaces;
-    @OneToMany(mappedBy = "showing")
+    @OneToMany(mappedBy = "showing",fetch = FetchType.EAGER)
     private Set<Reservation> reservations;
 }
