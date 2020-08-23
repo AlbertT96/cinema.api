@@ -23,12 +23,12 @@ public class ReservationServices {
         reservationRepo.deleteById(id);
     }
 
-    String addReservation(String firstName, String lastName, Long sitNumber, Long showingId) {
-        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> x.equals(sitNumber))){
+    String addReservation(String firstName, String lastName, Long seatNumber, Long showingId) {
+        if(showingServices.getAllAvailableSitByShowingId(showingId).stream().anyMatch(x-> x.equals(seatNumber))){
             Reservation reservation = Reservation.builder()
                     .firstName(firstName)
                     .lastName(lastName)
-                    .seatNumber(sitNumber)
+                    .seatNumber(seatNumber)
                     .showing(Showing.builder().id(showingId).build())
                     .build();
 
