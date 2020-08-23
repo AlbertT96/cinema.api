@@ -17,10 +17,6 @@ public class ReservationServices {
     private final ReservationRepository reservationRepo;
     private final ShowingServices showingServices;
 
-    public Set<Reservation> getReservedPlacesByShowing(Showing showing) {
-        return reservationRepo.findAllByShowing(showing);
-    }
-
     public void deleteReservationById(Long id) {
         reservationRepo.deleteById(id);
     }
@@ -37,7 +33,6 @@ public class ReservationServices {
                     .seatNumber(seatNumber)
                     .showing(Showing.builder().id(showingId).build())
                     .build();
-
             reservationRepo.save(reservation);
 
             log.info("add reservation");
